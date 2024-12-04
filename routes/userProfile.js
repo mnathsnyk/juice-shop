@@ -51,7 +51,16 @@ module.exports = function getUserProfile () {
             'Content-Security-Policy': CSP
           })
 
-
+ res.send(fn(user.dataValues))
+        }).catch(error => {
+          next(error)
+        })
+      } else {
+        next(new Error('Blocked illegal activity by ' + req.connection.remoteAddress))
+      }
+    })
+  }
+  
   function favicon () {
     return utils.extractFilename(config.get('application.favicon'))
   }
