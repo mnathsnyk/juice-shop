@@ -60,6 +60,7 @@ module.exports = function getUserProfile () {
       }
     })
   }
+
   
   function favicon () {
     return utils.extractFilename(config.get('application.favicon'))
