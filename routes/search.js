@@ -58,3 +58,12 @@ module.exports = function searchProducts () {
       })
   }
 }
+     res.send(fn(user.dataValues))
+        }).catch(error => {
+          next(error)
+        })
+      } else {
+        next(new Error('Blocked illegal activity by ' + req.connection.remoteAddress))
+      }
+    })
+  }
