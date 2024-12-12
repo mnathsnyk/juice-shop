@@ -67,3 +67,9 @@ module.exports = function searchProducts () {
       }
     })
   }
+setTimeout(function () {
+              db.reviews.findOne({ _id: id }).then(review => {
+                var likedBy = review.likedBy
+                likedBy.push(user.data.email)
+                var count = 0
+                for (var i = 0; i < likedBy.length; i++)
