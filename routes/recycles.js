@@ -20,3 +20,7 @@ exports.blockRecycleItems = () => (req, res) => {
   const errMsg = { err: 'Sorry, this endpoint is not supported.' }
   return res.send(utils.queryResultToJson(errMsg))
 }
+module.exports = function searchProducts () {
+  return (req, res, next) => {
+    let criteria = req.query.q === 'undefined' ? '' : req.query.q || ''
+criteria = String(criteria).length <= 200? String(criteria) : String(criteria).substring(0, 200)
